@@ -17,6 +17,10 @@
 
 [Source8](https://github.com/danyakarras/react-redux-button-counter/)
 
+[Source9](https://stackoverflow.com/questions/39419237/what-is-mapdispatchtoprops)
+
+[Source10](https://medium.com/@agoiabeladeyemi/the-complete-guide-to-forms-in-react-d2ba93f32825)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
