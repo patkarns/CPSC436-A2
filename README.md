@@ -1,12 +1,20 @@
 ## References
 [Source0](https://medium.com/the-web-tub/managing-your-react-state-with-redux-affab72de4b1)
+
 [Source1](https://dzone.com/articles/what-is-the-reactjs-thispropsitemsmap-property)
+
 [Source2](https://react-redux.js.org/using-react-redux/connect-mapdispatch)
+
 [Source3](https://redux.js.org/basics/reducers)
+
 [Source4](https://reactjs.org/docs/handling-events.html)
+
 [Source5](https://blog.logrocket.com/a-guide-to-react-onclick-event-handlers-d411943b14dd/)
+
 [Source6](https://www.w3schools.com/css)
+
 [Source7](https://github.com/patkarns/CPSC436-A1)
+
 [Source8](https://github.com/danyakarras/react-redux-button-counter/)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
