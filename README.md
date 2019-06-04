@@ -21,6 +21,12 @@
 
 [Source10](https://medium.com/@agoiabeladeyemi/the-complete-guide-to-forms-in-react-d2ba93f32825)
 
+[Source11](https://hjnilsson.com/2016/12/11/generic-form-handleChange-in-react/)
+
+[Source12](https://daveceddia.com/redux-tutorial/)
+
+[Source13](https://itnext.io/keep-calm-and-handle-forms-in-react-js-52c67eea340e)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
