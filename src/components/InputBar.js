@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux';
-import { addMessage, displayMessage } from '../actions/index'
+import { addMessage, displayMessage, addMess } from '../actions/index'
+import {callMessageApp } from './MessageList';
 import {bindActionCreators} from 'redux'
 import '../App.css';
 
@@ -9,7 +10,8 @@ class InputBar extends React.Component {
         super(props)
         this.state = {
             text: '',
-        }
+          }
+
         this.onChangeText = this.onChangeText.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -23,7 +25,9 @@ class InputBar extends React.Component {
     handleSubmit(e){
         e.preventDefault();
         let text = this.refs.text.value;
-        this.props.addMessage(text);
+        this.props.addMess({text});
+        
+        //this.props.addMessage(text);
         this.setState({ text: this.text });
         this.refs.form.reset();
         // console.log('input bar props: ' +  JSON.stringify(this.props.text));
@@ -52,7 +56,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => {
   return bindActionCreators(
     {
-      addMessage
+      addMessage,
+      addMess
     },
     dispatch
   );

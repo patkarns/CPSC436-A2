@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 
 const init =[
-    {id: 0, text: 'Good morning!'},
-    {id: 1, text: 'cream puffs!'},
-    {id: 2, text: 'I want to make cinnamon buns tomorrow'}
+    // {id: 0, text: 'Good morning!'},
+    // {id: 1, text: 'cream puffs!'},
+    // {id: 2, text: 'I want to make cinnamon buns tomorrow'}
 ];
 
 const addMessageReducer = (currentState, action) => {
@@ -14,7 +14,7 @@ const addMessageReducer = (currentState, action) => {
     // console.log('action: ' + JSON.stringify(action));
     // currentState.push(newMessage);
 
-    console.log('cur_state:' + JSON.stringify(currentState));
+    //console.log('cur_state:' + JSON.stringify(currentState));
     // return currentState;
     return [...currentState, newMessage
           ]
@@ -37,7 +37,44 @@ const displayMessageReducer = (old='', action) => {
 	return old;
 };
 
+///////////////////////////////////////////////////////
+const initialState = {
+  loading: false,
+  messages: init,
+  error: null
+};
+
+// export default function
+const messagesReducer = (currentState, action) => {
+  currentState = currentState || initialState;
+
+  switch (action.type) {
+    case 'ADD_MESSAGE_STARTED':
+      return {
+        ...currentState,
+        loading: true
+      };
+    case 'ADD_MESSAGE_SUCCESS':
+      return {
+        ...currentState,
+        loading: false,
+        error: null,
+        messages: [...currentState.messages, action.text]
+      };
+    case 'ADD_MESSAGE_FAILURE':
+      return {
+        ...currentState,
+        loading: false,
+        error: action.text.error
+      };
+    default:
+      return currentState;
+  }
+}
+
+
 export default combineReducers({
 	text: addMessageReducer,
-  disp: displayMessageReducer
+  disp: displayMessageReducer,
+  messagesReducer
 });
