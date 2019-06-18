@@ -25,10 +25,8 @@ class InputBar extends React.Component {
         e.preventDefault();
         let text = this.refs.text.value;
         this.props.addMess({text});
-        //this.props.addMessage(text);
         this.setState({ text: this.text });
         this.refs.form.reset();
-        // console.log('input bar props: ' +  JSON.stringify(this.props.text));
     }
 
     render(){
@@ -38,10 +36,9 @@ class InputBar extends React.Component {
                   <h1> Messages Display
                       <img src={logo} alt="paper plane icon"/>
                   </h1>
-                  <p className="helpText"> Type your message here: </p>
                     <form onSubmit={this.handleSubmit} ref='form' align='center'>
-                      <input type='text' ref='text' />
-                      <input type='submit' value='Add Todo' />
+                      <input type='text' ref='text' placeholder="Type your message here:"/>
+                      <input type='submit' value='Add Message' />
                     </form>
                   </div>
         );

@@ -20,9 +20,6 @@ class MessageList extends React.Component {
 
     axios.get('http://localhost:9000/messages')
     .then(response => {
-      //this.props.addWeatherData(response);
-      //console.log(this.props.weather);
-      //const {weather} = this.props;
       for (let entry of response.data) {
         this.props.addMessage(entry.id, entry.text);
       }
@@ -37,7 +34,7 @@ class MessageList extends React.Component {
     //     console.log(this.props.apiResponse);
   }
 
-    componentWillMount() {
+    componentDidMount() {
       this.callMessageApp();
     }
 
@@ -57,9 +54,6 @@ class MessageList extends React.Component {
     }
 
     handleClear() {
-      // for (let entry of this.props.text) {
-      //   this.props.removeMess({id: entry.id});
-      // }
       console.log('handle clear')
       console.log(this.props.text)
       this.props.clearMess(this.props.text);
@@ -68,25 +62,21 @@ class MessageList extends React.Component {
     render(){
       // const listItems = data.map((d) => <li key={d.id}>{d.text}</li>);
       //const listItems = this.props.text.map((d) => <li onClick={ () => {this.handleClick(d.id);} } key={d.id}> <button className="removeButton" onClick={ () => {this.handleRemove(d.id);} }> remove </button>  {d.text} </li>);
-      const listItems = this.props.text.map((d) => <li onClick={ () => {this.handleClick(d.id);} } key={d.id}>  {d.text} </li>);
-      /*console.log('apiResponse: ')
-      console.log(this.state.apiResponse)
-      */
+      const logo = require('../message.png');
+      const listItems = this.props.text.map((d) => <li class = "expand" onClick={ () => {this.handleClick(d.id);} } key={d.id}> <img alt="mail" src={logo} class="Mail" /> {d.text} </li>);
       return (
                   <div>
-
                     <h2> {this.props.disp.disp} </h2>
-
                       <h3> Messages Submitted:
                     <button type="button" className = "clearButton" onClick={ () => {this.handleClear();} }>Clear All Messages</button>
                     </h3>
-                    <p> {listItems} </p>
-
+                    <div className="MessageBox">
+                      <p> {listItems} </p>
+                    </div>
                   </div>
         );
     }
 }
-//<p>{this.state.apiResponse}</p>
 
 const mapStateToProps = (state) => {
   return { text: state.text, disp: state.disp };
