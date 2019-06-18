@@ -17,17 +17,16 @@ input[type=submit]{
   border-radius: 2px;
 }
 
-.removeButton {
+.clearButton {
   background-color:#ad3232;
   border: none;
   color: white;
-  height: 20px;
-  width: 60px;
-  margin: 10px 2px;
+  height: 40px;
+  width: 200px;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 15px;
   border-radius: 2px;
-
+  margin-left: 40px;
 }
 
 .helpText {
@@ -42,7 +41,7 @@ li {
   list-style-type: none;
   cursor: pointer;
   line-height: 1.5;
-
+  padding-bottom: 20px;
 }
 
 p {

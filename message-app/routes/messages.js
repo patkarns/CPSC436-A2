@@ -1,4 +1,4 @@
-const init =[
+let init =[
   {id: 0, text: 'Good morning!'},
   {id: 1, text: 'cream puffs!'},
   {id: 2, text: 'I made cinnamon buns!'}
@@ -13,13 +13,36 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-  console.log('in post')
-  console.log(req)
   const newMessage = req.body
   init.push(newMessage)
   res.setHeader('Content-Type', 'application/json')
   res.send(JSON.stringify(init));
 
+  /*new_user = req.body
+  users.push(new_user)
+  res.json(new_user)
+  */
+});
+
+router.delete('/', function(req, res, next) {
+  // console.log(req.params);
+  // const id = req.body.id
+  // let newInit = [];
+  // let deleted = {};
+
+  // for (let entry of init) {
+  //   if (entry.id === id) {
+  //     deleted = entry;
+  //   } else {
+  //     newInit.push(entry);
+  //   }
+  // }
+  // init = newInit;
+  // res.setHeader('Content-Type', 'application/json')
+  // res.send(JSON.stringify(init));
+  init = [];
+  res.send(init);
+  //res.send(init);
   /*new_user = req.body
   users.push(new_user)
   res.json(new_user)

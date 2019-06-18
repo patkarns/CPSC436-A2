@@ -1,6 +1,6 @@
-import React, {Component} from 'react'
+import React/*, {Component}*/ from 'react'
 import { connect } from 'react-redux'
-import { addMessage, removeMessage, displayMessage, addMess } from '../actions/index'
+import { addMessage, removeMessage, displayMessage, clearMess } from '../actions/index'
 import {bindActionCreators} from 'redux'
 import '../App.css';
 const axios = require('axios');
@@ -24,10 +24,8 @@ class MessageList extends React.Component {
       //console.log(this.props.weather);
       //const {weather} = this.props;
       for (let entry of response.data) {
-        this.props.addMessage(entry.text);
+        this.props.addMessage(entry.id, entry.text);
       }
-
-      //this.setState( { disp: response.data } )
     })
     .catch(error => {
     console.log(error);
@@ -58,9 +56,19 @@ class MessageList extends React.Component {
       this.props.removeMessage(id);
     }
 
+    handleClear() {
+      // for (let entry of this.props.text) {
+      //   this.props.removeMess({id: entry.id});
+      // }
+      console.log('handle clear')
+      console.log(this.props.text)
+      this.props.clearMess(this.props.text);
+    }
+
     render(){
       // const listItems = data.map((d) => <li key={d.id}>{d.text}</li>);
-      const listItems = this.props.text.map((d) => <li onClick={ () => {this.handleClick(d.id);} } key={d.id}> <button className="removeButton" onClick={ () => {this.handleRemove(d.id);} }> remove </button>  {d.text} </li>);
+      //const listItems = this.props.text.map((d) => <li onClick={ () => {this.handleClick(d.id);} } key={d.id}> <button className="removeButton" onClick={ () => {this.handleRemove(d.id);} }> remove </button>  {d.text} </li>);
+      const listItems = this.props.text.map((d) => <li onClick={ () => {this.handleClick(d.id);} } key={d.id}>  {d.text} </li>);
       /*console.log('apiResponse: ')
       console.log(this.state.apiResponse)
       */
@@ -68,7 +76,10 @@ class MessageList extends React.Component {
                   <div>
 
                     <h2> {this.props.disp.disp} </h2>
-                    <h3> Messages Submitted: </h3>
+
+                      <h3> Messages Submitted:
+                    <button type="button" className = "clearButton" onClick={ () => {this.handleClear();} }>Clear All Messages</button>
+                    </h3>
                     <p> {listItems} </p>
 
                   </div>
@@ -86,7 +97,8 @@ const mapDispatchToProps = dispatch => {
     {
       addMessage,
       displayMessage,
-      removeMessage
+      removeMessage,
+      clearMess
     },
     dispatch
   );

@@ -1,7 +1,6 @@
-import React, {Component} from 'react'
+import React/*, {Component}*/ from 'react'
 import { connect } from 'react-redux';
-import { addMessage, displayMessage, addMess } from '../actions/index'
-import {callMessageApp } from './MessageList';
+import { addMessage, /*displayMessage,*/ addMess } from '../actions/index'
 import {bindActionCreators} from 'redux'
 import '../App.css';
 
@@ -26,7 +25,6 @@ class InputBar extends React.Component {
         e.preventDefault();
         let text = this.refs.text.value;
         this.props.addMess({text});
-        
         //this.props.addMessage(text);
         this.setState({ text: this.text });
         this.refs.form.reset();
