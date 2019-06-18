@@ -27,6 +27,12 @@
 
 [Source13](https://itnext.io/keep-calm-and-handle-forms-in-react-js-52c67eea340e)
 
+[Source14](https://alligator.io/redux/redux-thunk/)
+
+[Source15](https://www.w3schools.com/howto/howto_css_animate_buttons.asp)
+
+[Source16](https://blog.logrocket.com/managing-asynchronous-actions-in-redux-1bc7d28a00c6/)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
